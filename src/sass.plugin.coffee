@@ -2,9 +2,10 @@
 module.exports = (BasePlugin) ->
   # Requires
   fs = require('fs')
-  {TaskGroup} = require('taskgroup')
+  path = require('path')
   sass = require('node-sass')
   importOnce = require('node-sass-import-once')
+  async = require('async')
 
   # Define Plugin
   class NodesassPlugin extends BasePlugin
@@ -16,17 +17,6 @@ module.exports = (BasePlugin) ->
       debugInfo: false
       renderUnderscoreStylesheets: false
       sourceMap: false
-
-    # Generate Before
-    generateBefore: (opts,next) ->
-      # Prepare
-      config = @config
-
-      # Group
-      tasks = new TaskGroup().setConfig(concurrency:0).done(next)
-
-      # Fire tasks
-      tasks.run()
 
     # Prevent underscore
     extendCollections: (opts) ->
@@ -57,17 +47,9 @@ module.exports = (BasePlugin) ->
         fullDirPath = file.get('fullDirPath')
 
         # Read sources & return content
-        getSourcesContent = (sources) ->
-          sourcesContent = []
-          i = 0
-
-          while i < sources.length
-            source = fullDirPath + '/' + sources[i]
-            sourcesContent[i] = fs.readFileSync(source,
-              encoding: 'utf8'
-            )
-            i++
-          sourcesContent
+        getSourcesContent = (sources, done) ->
+          async.map sources.map(extendSourcePath), (source, next) ->
+            fs.readFile path.join(fullDirPath, source), {encoding: 'utf8'}, next
 
         # Prepare the command and options
         cmdOpts = {}
@@ -97,11 +79,14 @@ module.exports = (BasePlugin) ->
 
           if result.map and result.map.sources
             map = result.map
-            map.sourcesContent = getSourcesContent(map.sources)
-            sourceMap = new Buffer(JSON.stringify(map)).toString('base64')
-            css = css.replace(/\/\*# sourceMappingURL=.*\*\//, '/*# sourceMappingURL=data:application/json;base64,' + sourceMap + '*/')
+            getSourcesContent map.sources, (err, sourcesContent) ->
+              return next(err) if err
 
-          opts.content = css
-          next()
+              map.sourcesContent = sourcesContent
+              sourceMap = new Buffer(JSON.stringify(map)).toString('base64')
+              css = css.replace(/\/\*# sourceMappingURL=.*\*\//, '/*# sourceMappingURL=data:application/json;base64,' + sourceMap + '*/')
+
+              opts.content = css
+              next()
       else
         next()
