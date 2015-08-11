@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-nodesassimportonce",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Docpad lib for node-sass-import-once. Built mainly for compatibility with Watson design-guide.",
   "homepage": "https://github.com/nfriedly/docpad-plugin-nodesassimportonce",
   "keywords": [
