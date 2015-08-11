@@ -42,7 +42,7 @@ Example:
 
 debugInfo: false|'normal'|'map'
 
-normal will print comments in the output css that indicates the source file name and line number. map will produce a sourcemap. Using either of these options instead of none will prevent you from being able to run any other process on the file (e.g. FILE.css.scss.eco), because debugInfo requires passing an actual file instead of stdin.
+`normal` will print comments in the output css that indicates the source file name and line number. `map` will produce a sourcemap. Using either of these options instead of `none` will prevent you from being able to run any other process on the file (e.g. `FILE.css.scss.eco`), because `debugInfo` requires passing an actual file instead of `stdin`.
 
 
 ### Options
