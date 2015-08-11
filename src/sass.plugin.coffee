@@ -23,7 +23,7 @@ module.exports = (BasePlugin) ->
       config = @config
 
       # Group
-      tasks = new TaskGroup().setConfig(concurrency:0).once('complete',next)
+      tasks = new TaskGroup().setConfig(concurrency:0).done(next)
 
       # Fire tasks
       tasks.run()
