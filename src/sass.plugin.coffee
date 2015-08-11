@@ -88,5 +88,8 @@ module.exports = (BasePlugin) ->
 
               opts.content = css
               next()
+          else
+            opts.content = css
+            next()
       else
         next()
