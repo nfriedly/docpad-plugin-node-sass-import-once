@@ -1,7 +1,7 @@
 {
   "name": "docpad-plugin-nodesassimportonce",
   "version": "2.0.2",
-  "description": "Docpad lib for node-sass-import-once. Built mainly for compatibility with Watson design-guide.",
+  "description": "Adds support for the SASS/SCSS CSS pre-processor to DocPad. Built primarily for compatibility with IBM-Watson/design-guide, but also happens to be the fastest and friendliest Sass plugin avaliable for Docpad.",
   "homepage": "https://github.com/nfriedly/docpad-plugin-nodesassimportonce",
   "keywords": [
     "docpad",
@@ -14,9 +14,10 @@
     "preprocessor",
     "css",
     "node-sass",
-    "bourbon"
+    "import-once",
+    "bower"
   ],
-  "author": "Nathan Friedly (http://jimmyking.me)",
+  "author": "Nathan Friedly (http://nfriedly.com)",
   "bugs": {
     "url": "https://github.com/nfriedly/docpad-plugin-nodesassimportonce/issues"
   },
@@ -44,6 +45,9 @@
   },
   "license": "MIT",
   "main": "./out/sass.plugin.js",
+  "files": [
+    "./out/sass.plugin.js"
+  ],
   "scripts": {
     "clean": "./node_modules/.bin/cake clean",
     "setup": "./node_modules/.bin/cake setup",
