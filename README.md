@@ -1,7 +1,6 @@
 # [SASS/SCSS](http://sass-lang.com/) Plugin for [DocPad](https://docpad.org)
 
 [![NPM version](https://badge.fury.io/js/docpad-plugin-nodesassimportonce.png)](https://npmjs.org/package/docpad-plugin-nodesassimportonce "View this project on NPM")
-[![Dependency Status](https://gemnasium.com/nfriedly/docpad-plugin-nodesassimportonce.png)](https://gemnasium.com/nfriedly/docpad-plugin-nodesassimportonce)
 [![Build Status](https://travis-ci.org/nfriedly/docpad-plugin-nodesassimportonce.png?branch=master)](https://travis-ci.org/nfriedly/docpad-plugin-nodesassimportonce)
 
 > Adds support for the [SCSS](http://sass-lang.com/) CSS pre-processor to [DocPad](https://docpad.org).
