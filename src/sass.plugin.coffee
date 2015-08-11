@@ -75,7 +75,7 @@ module.exports = (BasePlugin) ->
         sass.render cmdOpts, (err, result) ->
           return next(err) if err
 
-          css = result.css
+          css = result.css.toString() # sass returns a Buffer object
 
           if result.map and result.map.sources
             map = result.map
