@@ -3,13 +3,9 @@
 [![NPM version](https://badge.fury.io/js/docpad-plugin-nodesassimportonce.png)](https://npmjs.org/package/docpad-plugin-nodesassimportonce "View this project on NPM")
 [![Build Status](https://travis-ci.org/nfriedly/docpad-plugin-nodesassimportonce.png?branch=master)](https://travis-ci.org/nfriedly/docpad-plugin-nodesassimportonce)
 
-> Adds support for the [SCSS](http://sass-lang.com/) CSS pre-processor to [DocPad](https://docpad.org).
+Adds support for the [SASS/SCSS](http://sass-lang.com/) CSS pre-processor to [DocPad](https://docpad.org). Built primarily for compatibility with [IBM-Watson/design-guide](https://github.com/IBM-Watson/design-guide), but also happens to be the fastest and friendliest Sass plugin avaliable for Docpad.
 
-Uses [node-sass](https://www.npmjs.com/package/node-sass) and [node-sass-import-once](https://www.npmjs.com/package/node-sass-import-once) under the hood.
-
-Built primarily for compatibility with [IBM-Watson/design-guide](https://github.com/IBM-Watson/design-guide). 
-
-Based on [docpad-plugin-nodesass](https://www.npmjs.com/package/docpad-plugin-nodesass) by [Jimmy King](https://github.com/jking90).
+Uses [node-sass](https://www.npmjs.com/package/node-sass) and [node-sass-import-once](https://www.npmjs.com/package/node-sass-import-once) under the hood. Based on [docpad-plugin-nodesass](https://www.npmjs.com/package/docpad-plugin-nodesass) by [Jimmy King](https://github.com/jking90). 
 
 Convention:  `documents/css/*.css.scss`
 
