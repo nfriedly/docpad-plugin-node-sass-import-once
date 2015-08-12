@@ -47,9 +47,10 @@ module.exports = (BasePlugin) ->
         fullDirPath = file.get('fullDirPath')
 
         # Read sources & return content
+        getSourceContent = (source, next) ->
+          fs.readFile path.join(fullDirPath, source), {encoding: 'utf8'}, next
         getSourcesContent = (sources, done) ->
-          async.map sources.map(extendSourcePath), (source, next) ->
-            fs.readFile path.join(fullDirPath, source), {encoding: 'utf8'}, next
+          async.map sources.map(extendSourcePath), getSourceContent, done
 
         # Prepare the command and options
         cmdOpts = {}
